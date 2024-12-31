@@ -1,0 +1,14 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local teleport = game.Workspace.Lobby.Teleport1
+
+character.HumanoidRootPart.CFrame = teleport.CFrame
+wait(0.5)
+local tool = character:FindFirstChildOfClass("Tool")
+tool.Parent = game.ReplicatedStorage
+character.Humanoid.Health = 0
+wait(4)
+player = game.Players.LocalPlayer
+character = player.Character or player.CharacterAdded:Wait()
+tool.Parent = character
+character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
